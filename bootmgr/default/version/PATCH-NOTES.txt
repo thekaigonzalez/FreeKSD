@@ -1,0 +1,9 @@
+1.5.5
+
+- Add better math checks
+
+To install, type:
+
+pull +stable
+update hello
+update dpkg
