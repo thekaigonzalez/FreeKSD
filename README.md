@@ -40,16 +40,26 @@ Kux
 - Contains runtimes for running Kux apps
 - Contains solid Lua APIs which interface with C++ standard apis.
 - No Unnecessary Codes
+- Open Source
 
 KTerminal
 
 - Written in Python
 - Bulky and slow when it comes to HTTP Get Requests.
 - Contains unnecessary codes which slow KTerminal up.
+- Contains lots of commands
+- Open Source
 
 FreeKSD
 
-- 
+- Support for native APIs and the Kux Default shell
+- Runs all code in Safe mode to prevent crashes
+- Works with the Kux System and uses 100% pure headers
+- Open Source
+- Adds better native Support for external systems
+- A Flavor of Kux instead of a rewrite
+
+
 ### Performance Comparison
 
 Kux is approximately a SECOND faster than KTerminal.
