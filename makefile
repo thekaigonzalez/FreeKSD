@@ -1,7 +1,7 @@
 # FreeKSD is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE
 # Deriving from it's base, Kux's license.
 all:
-	g++ src/initial.cpp -std=c++11 -llua5.3 -o freeKSD
+	g++ src/initial.cpp -std=c++11 -llua5.3 -o KSD
 	
 	g++ lib/http.cpp -std=c++11 -lcpr -shared -fPIC -llua5.3 -o ./libhttp.so
 	g++ lib/posix_thread_sleep.cpp -std=c++11 -lcpr -shared -fPIC -llua5.3 -o ./libposix.so

@@ -1,9 +1,8 @@
-# Kux
-Kux is a Lua filesystem manager & loader.
+# FreeKSD
+FreeKSD is an interoperable, Modern-day Unix-Shell based application which is based off of the original [Kux System]()
+Open ./freeKSD to get started.
 
-Open bin/shch and let it work it's magic.
-
-Containing its own:
+FreeKSD uses Kux, And Kux Contains
 
 - Http library
 - Symbol Searching Library
@@ -15,8 +14,6 @@ Containing its own:
 - Linux man-page style documentation (https://thekaigonzalez.github.io/Kux/head/)
 
 Kux is completely from scratch. No external libraries except for maybe luarocks are used.
-
-> shch Opens bootchooser.lua. then, installs a loader if you have none, asks to load one if you do. Using C++ as a backend loader, Managing multiple versions of Kux is simple.
 
 ## Kux VS KTerminal: How do they compare?
 

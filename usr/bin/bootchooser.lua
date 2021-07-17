@@ -87,18 +87,13 @@ else
                 sys_register("is", "default") -- register into bootloader registry
                 sys_register("name", "Anonymous") -- register name
                 thread_sleep(4)
-                sys_mkdir("usr/dsh/") --- make command directory
-                sys_mkdir("usr/dversion")
+
                 hdofile("https://raw.githubusercontent.com/thekaigonzalez/Kux/master/bootmgr/default/version/VERSION.manifest", "usr/dversion/VERSION.manifest")
-            else
-
-
-                thread_sleep(1)
-                LOG("downloading required & shared files...")
-
-                thread_sleep(2)
-                LOG("Working directory: " .. getworkingdir_posix())
-
+            elseif bootloader == "freeksd" then
+                print("installing FreeKSD...")
+                sysfcpy("./bootmgr/freeksd", "usr/bootloader/bootmanager")
+                sys_register("is", "default") -- register into bootloader registry
+                sys_register("name", "Anonymous") -- register name
             end
         else
             LOG("invalid option. operation cancelled.")

@@ -23,3 +23,5 @@ function manager:bmain()
     ]]
 end
 
+
+return manager -- Don't forget to return the Manager! This helps separate different Managers from each other
