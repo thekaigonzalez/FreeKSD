@@ -28,7 +28,7 @@ FreeKSD uses Kux, And Kux Contains
 
 Kux is completely from scratch. No external libraries except for maybe luarocks are used.
 
-## Kux VS KTerminal: How do they compare?
+## Kux VS KTerminal VS FreeKSD: How do they compare?
 
 Well, Kux is a performant, Dynamic terminal written in C++ and Lua, with a little C innit ;)
 
@@ -47,6 +47,9 @@ KTerminal
 - Bulky and slow when it comes to HTTP Get Requests.
 - Contains unnecessary codes which slow KTerminal up.
 
+FreeKSD
+
+- 
 ### Performance Comparison
 
 Kux is approximately a SECOND faster than KTerminal.

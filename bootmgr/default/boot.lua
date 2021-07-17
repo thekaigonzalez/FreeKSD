@@ -68,8 +68,14 @@ G:::::G        G::::G  K:::::K K:::::K   u::::u    u::::u       x::::::::x
         process.gAddArguments(command)
         if file_exists("./usr/dsh/" .. process.argv[0] .. ".lua") then
             local object = require('usr.dsh.' .. process.argv[0])
+            if pcall(function()
+                object:Main(process.argv)
+            end) then
 
-            object:Main(process.argv)
+            else
+                print("error in program")
+            end
+
             process.argv = {}
         else
             -- all filesystems should have a check for the /usr/sbin directory
