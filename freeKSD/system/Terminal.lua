@@ -15,14 +15,49 @@ function Terminal:Terminal(LOGIN_CODE)
         end
         print("\nType 'help' for a list of commands.")
         while LOGIN_CODE == 0x0001 do -- lets not do while (true), Because we want a layer of security to prevent crashes on the system itself.
+            io.write("> ")
             local uxinput = io.read()
 
             local argv = OneTimeSplit(uxinput)
-            --- objects usually don't throw exceptions until they're indexed. So lets try this..
-            local dshobject = require('usr.dsh.' .. argv[0])
-            local freeKSDObject = require('usr.FreeKSD.' .. argv[0])
-            local CoreUtilObject = require('usr.sbin.' .. argv[0])
-        end
+
+            local DSHPath = "usr/dsh/" .. argv[0] .. ".lua"
+            local FreeKSDPath = "usr/FreeKSD/" .. argv[0] .. ".lua"
+            local CoreUtilObject = "usr/sbin/" .. argv[0] .. ".lua"
+            if file_exists(DSHPath) then
+                if loadfile("usr/dsh/" .. argv[0] .. ".lua") then
+                    local dshobject =require('usr.dsh.' .. argv[0])
+                    if  pcall(function () dshobject:Main(argv) end) then
+
+                    else
+                        print("error in program")
+                    end
+                else
+                    print(argv[0] .. ".lua: " .. " Program failed to Memory-Compile while trying to preload.")
+                end
+
+
+            elseif file_exists(FreeKSDPath) then
+                local freeKSDObject = require('usr.FreeKSD.' .. argv[0])
+                local success,err = pcall(function () freeKSDObject:main(argv) end)
+                if not success then
+                print(err)
+                end
+                elseif file_exists(CoreUtilObject) then
+                local CoreUtilObjectT = require('usr.sbin.' .. argv[0])
+                if pcall(function ()
+                CoreUtilObjectT:main(argv) end) then
+                --- do nothing!
+                else
+                local success,err = pcall(function () CoreUtilObjectT:Main(argv) end)
+                if not success then
+                    print(err)
+                    end
+                    end
+                    else
+                    print("Terminal.Terminal:36: Command not found.")
+                    end
+
+            end
 
     else
         -- if token/LOGIN_CODE is not F_OK, It's not the process we're looking for.
