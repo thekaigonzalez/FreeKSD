@@ -1,11 +1,19 @@
 # FreeKSD
-FreeKSD is an interoperable, Modern-day Unix-Shell based application which is based off of the original [Kux System]()
+FreeKSD is an interoperable, Modern-day Unix-Shell based application which is based off of the original [Kux System](https://github.com/thekaigonzalez/Kux)
 Open ./KSD to get started after building.
 
 FreeKSD Works simultaneously with The default shell, as
 well as run files in a venv which prevents crashes to the default shell.
 
+FreeKSD Provides updates for the boot chooser,
+Kux Shell, and the overall entire Kux filesystem.
 
+FreeKSD as well as working with Kux's default shell,
+can also run files made by the `dsh` and supports many other command pallets such as 
+coreutils.
+
+FreeKSD aims to provide more security compared to Kux,
+And prevent crashes.
 
 FreeKSD uses Kux, And Kux Contains
 
