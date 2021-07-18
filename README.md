@@ -52,7 +52,7 @@ KTerminal
 
 FreeKSD
 
-- Support for native APIs and the Kux Default shell
+- Support for native APIs, and the Kux Default shell
 - Runs all code in Safe mode to prevent crashes
 - Works with the Kux System and uses 100% pure headers
 - Open Source
