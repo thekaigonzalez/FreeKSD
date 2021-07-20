@@ -14,7 +14,9 @@ function self:main(argv)
         parser:option("-W --warn", "Sets WARNINGS.")
 
         local args = parser:parse(argv)
-
+        if args["FILE"] == nil then
+            parser:send_help()
+        end
         local warnings = false
         local outfile = args["output"]
 
@@ -22,14 +24,12 @@ function self:main(argv)
             print("1.0-rc1")
         end
 
-        if args["warn"] == true then
+        if args["warn"] == "all" then
             warnings = true
         end
 
-
-        print("warnings: " .. args["warn"] .. "\nOutput: " .. outfile .. "\n")
         end)
-    if not success then return 0x0001 else return 0x0000 end -- just to silence errors
+    if success then return 0x0001 else return 0x0001 end -- just to silence errors
 end
 
 return self

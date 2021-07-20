@@ -49,11 +49,11 @@ function Terminal:Terminal(LOGIN_CODE)
                     local status, err = pcall(function()
                         local fsv = freeKSDObject:main(argv)
                         if fsv == 0x0001 then
-                            print("ok")
+                            --print("ok")
                         elseif fsv == 0x0002 then
-                            print 'success upstream'
+                            --print 'success upstream'
                         elseif fsv == 0x0000 or fsv == nil then
-                            print("Program Returned An EXIT value or a NIL value!")
+                            --print("Program Returned An EXIT value or a NIL value!")
                         end
 
                     end)
