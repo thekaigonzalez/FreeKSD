@@ -1,7 +1,9 @@
 require('freeKSD.system.HexDecoder')
 
 local Terminal = {}
-
+function include(file)
+    return require('usr.include.' .. file)
+end
 function Terminal:Terminal(LOGIN_CODE)
     if GetHString(LOGIN_CODE) == "F_OK" then
         print("successful login at " .. os.date())
@@ -45,7 +47,15 @@ function Terminal:Terminal(LOGIN_CODE)
 
                     local freeKSDObject = require('usr.freeKSD.' .. argv[0])
                     local status, err = pcall(function()
-                        freeKSDObject:main(argv)
+                        local fsv = freeKSDObject:main(argv)
+                        if fsv == 0x0001 then
+                            print("ok")
+                        elseif fsv == 0x0002 then
+                            print 'success upstream'
+                        elseif fsv == 0x0000 or fsv == nil then
+                            print("Program Returned An EXIT value or a NIL value!")
+                        end
+
                     end)
                     if status then
                         --- do nothing!
