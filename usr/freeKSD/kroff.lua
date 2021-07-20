@@ -14,43 +14,43 @@ function self:main(argv)
         parser:option("-W --warn", "Sets WARNINGS.")
 
         local args = parser:parse(argv)
-        if args["FILE"] == nil then
-            parser:send_help()
-        end
-        local warnings = false
-        local outfile = args["output"]
+        if args["FILE"] ~= nil then
 
-        if args["verbosity"] == 1 then
-            print("1.0-rc1")
-        end
 
-        if args["warn"] == "all" then
-            warnings = true
-        end
+            local warnings = false
+            local outfile = args["output"]
 
-        if file_exists("usr/share/man-doc/" .. args["FILE"] .. ".lua") then
-            --Name
-            --Synopsis
-            --Description
-            --Copyright
-            local doc = require("usr.share.man-doc." .. args["FILE"])
-            if doc:Name() == nil and warnings == true then
-                print("Warning! doc:Name() doesn't exist! Program may fail to compile. [-Wall] [-Wdoc-exist-nouse]")
+            if args["verbosity"] == 1 then
+                print("1.0-rc1")
             end
-            if doc:Synopsis() == nil and warnings == true then
-                print("Warning! doc:Synopsis() doesn't exist! Program may fail to compile. [-Wall] [-Wdoc-exist-nouse]")
-            end
-            if doc:Description() == nil and warnings == true then
-                print("Warning! doc:Description() doesn't exist! Program may fail to compile. [-Wall] [-Wdoc-exist-nouse]")
-            end
-            if doc:Copyright() == nil and warnings == true then
-                print("Warning! doc:Copyright() doesn't exist! Program may fail to compile. [-Wall] [-Wdoc-exist-nouse]")
-            end
-            --print(ar[2] .. "(" .. manpage.Position .. ") ".. manpage:Series() .. " " .. ar[2] .. "(" .. manpage.Position .. ") ")
-            --print("\nNAME\n\t" .. manpage:Name() .. "\nDESCRIPTION\n\t" .. manpage:Description() .. "\nSYNOPSIS\n\t" .. manpage:Synopsis() .. "\nCOPYRIGHT\n\tThis document is licensed under the " .. manpage:Copyright())
-            local file = io.open(args["output"], "w")
 
-            file:write([[
+            if args["warn"] == "all" then
+                warnings = true
+            end
+
+            if file_exists("usr/share/man-doc/" .. args["FILE"] .. ".lua") then
+                --Name
+                --Synopsis
+                --Description
+                --Copyright
+                local doc = require("usr.share.man-doc." .. args["FILE"])
+                if doc:Name() == nil and warnings == true then
+                    print("Warning! doc:Name() doesn't exist! Program may fail to compile. [-Wall] [-Wdoc-exist-nouse]")
+                end
+                if doc:Synopsis() == nil and warnings == true then
+                    print("Warning! doc:Synopsis() doesn't exist! Program may fail to compile. [-Wall] [-Wdoc-exist-nouse]")
+                end
+                if doc:Description() == nil and warnings == true then
+                    print("Warning! doc:Description() doesn't exist! Program may fail to compile. [-Wall] [-Wdoc-exist-nouse]")
+                end
+                if doc:Copyright() == nil and warnings == true then
+                    print("Warning! doc:Copyright() doesn't exist! Program may fail to compile. [-Wall] [-Wdoc-exist-nouse]")
+                end
+                --print(ar[2] .. "(" .. manpage.Position .. ") ".. manpage:Series() .. " " .. ar[2] .. "(" .. manpage.Position .. ") ")
+                --print("\nNAME\n\t" .. manpage:Name() .. "\nDESCRIPTION\n\t" .. manpage:Description() .. "\nSYNOPSIS\n\t" .. manpage:Synopsis() .. "\nCOPYRIGHT\n\tThis document is licensed under the " .. manpage:Copyright())
+                local file = io.open(args["output"], "w")
+
+                file:write([[
 <html lang="en-US">
 <style>
 h3 {
@@ -118,9 +118,12 @@ h2{ font-family: 'PT Mono', serif;font-size: 15px;text-align: center;}
     This project is licensed under the ]] .. doc:Copyright() .. [[.
 </pre>
                 ]])
-            file:close()
+                file:close()
+
+            end
 
         end
+
     end)
     if success then return 0x0001 else print("ERROR: " .. failmsg)return 0x0000 end -- just to silence errors
 end
