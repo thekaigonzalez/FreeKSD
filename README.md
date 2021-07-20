@@ -1,5 +1,5 @@
 # FreeKSD
-FreeKSD is an interoperable, Modern-day Unix-Shell based application which is based off of the original [Kux System](https://github.com/thekaigonzalez/Kux)
+FreeKSD is an production ready, Modern-day Unix-Shell based application which is based off of the original [Kux System](https://github.com/thekaigonzalez/Kux)
 Open ./KSD to get started after building.
 
 FreeKSD Works simultaneously with The default shell, as
