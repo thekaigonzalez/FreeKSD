@@ -8,6 +8,7 @@ doc.Position = "1"
 function doc:Name()
     return "gman - Generate HTML from KManPage"
 end
+
 --- a brief overview of what it does and the commands
 function doc:Synopsis()
     return "gman [page]"

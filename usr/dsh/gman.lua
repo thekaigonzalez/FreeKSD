@@ -56,10 +56,18 @@ h2{ font-family: 'PT Mono', serif;font-size: 15px;text-align: center;}
 
 </style>
 
+<h2><strong>]] .. arguments[1] .. [[(]] .. doc.Position .. [[) ]] .. doc:Series() .. [[ ]] .. arguments[1] .. [[(]] .. doc.Position .. [[)</strong></h2>
+
 <h3><strong>NAME</strong></h3>
 
 <pre>
     ]] .. doc:Name() .. [[
+</pre>
+
+<h3><strong>DESCRIPTION</strong></h3>
+
+<pre>
+    ]] .. doc:Description() .. [[
 </pre>
 
 <h3><strong>SYNOPSIS</strong></h3>
@@ -68,11 +76,7 @@ h2{ font-family: 'PT Mono', serif;font-size: 15px;text-align: center;}
     ]] .. doc:Synopsis() .. [[
 </pre>
 
-<h3><strong>DESCRIPTION</strong></h3>
 
-<pre>
-    ]] .. doc:Description() .. [[
-</pre>
 
 <h3><strong>COPYRIGHT</strong></h3>
 
